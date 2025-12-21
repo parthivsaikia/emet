@@ -1,4 +1,4 @@
-/*
+/**
  * Extract specific properties from an object
  * @template T - The type of the source object.
  * @template K - The keys to pick from the object.
