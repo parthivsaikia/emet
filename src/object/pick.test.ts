@@ -47,4 +47,9 @@ describe("pick", () => {
     pick(object, ["a", "b"]);
     expect(object).toStrictEqual({ a: 1, b: 2, c: 3 });
   });
+  it("doesn't change type of picked properties", () => {
+    const object = { a: 1, b: 2, c: null };
+    const result = pick(object, ["c"]);
+    expect(result["c"]).toEqual(null);
+  });
 });
