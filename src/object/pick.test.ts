@@ -32,4 +32,19 @@ describe("pick", () => {
     const object = {};
     expect(pick(object, ["a"])).toStrictEqual({});
   });
+  it("doesn't add keys that don't exist in the object", () => {
+    const object = {
+      a: 1,
+      b: 2,
+    };
+    const expectedObj = {
+      a: 1,
+    };
+    expect(pick(object, ["c", "a"])).toStrictEqual(expectedObj);
+  });
+  it("doesn't change the original object", () => {
+    const object = { a: 1, b: 2, c: 3 };
+    pick(object, ["a", "b"]);
+    expect(object).toStrictEqual({ a: 1, b: 2, c: 3 });
+  });
 });
