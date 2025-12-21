@@ -30,6 +30,7 @@ describe("pick", () => {
   });
   it("returns empty object when object is empty", () => {
     const object = {};
+    // @ts-expect-error -- Testing runtime behavior for invalid keys
     expect(pick(object, ["a"])).toStrictEqual({});
   });
   it("doesn't add keys that don't exist in the object", () => {
@@ -40,6 +41,7 @@ describe("pick", () => {
     const expectedObj = {
       a: 1,
     };
+    // @ts-expect-error -- Testing runtime behavior for invalid keys
     expect(pick(object, ["c", "a"])).toStrictEqual(expectedObj);
   });
   it("doesn't change the original object", () => {
