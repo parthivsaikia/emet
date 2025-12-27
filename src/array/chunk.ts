@@ -2,6 +2,9 @@ export function chunk<T>(array: T[], size: number): T[][] {
 	if (size <= 0) {
 		throw new Error(`size must be positive. Received size: ${size}`);
 	}
+	if (array.length === 0) {
+		return [];
+	}
 	const arraySize = Math.ceil(array.length / size);
 	const returnArr = new Array(arraySize);
 	let count = 0;
