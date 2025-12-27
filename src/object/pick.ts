@@ -19,14 +19,14 @@
  */
 
 export function pick<T extends object, K extends keyof T>(
-  object: T,
-  keys: readonly K[],
+	object: T,
+	keys: readonly K[],
 ): Pick<T, K> {
-  const returnObj = {} as Pick<T, K>;
-  for (const key of keys) {
-    if (key in object) {
-      returnObj[key] = object[key];
-    }
-  }
-  return returnObj;
+	const returnObj = {} as Pick<T, K>;
+	for (const key of keys) {
+		if (key in object) {
+			returnObj[key] = object[key];
+		}
+	}
+	return returnObj;
 }
